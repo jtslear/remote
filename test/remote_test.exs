@@ -2,11 +2,11 @@ defmodule RemoteTest do
   use ExUnit.Case
 
   setup do
-    {:ok, channel} = Remote.start_link
-    {:ok, channel: channel}
+    {:ok, something} = Remote.cable_box
   end
 
-  test "gets the channel", %{channel: channel} do
-    assert Remote.get_channel(channel) == 1
+  test "gets the channel", something do
+    assert Remote.get_channel(something) == 1
   end
+
 end

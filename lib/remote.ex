@@ -1,11 +1,14 @@
 defmodule Remote do
 
-  def start_link do
-    Agent.start_link(fn -> %{channel_number: 1} end)
+  def cable_box do
+    %{channel_number: 1}
   end
 
-  def get_channel(channel) do
-    Agent.get(channel, Map.get(channel, :channel_number))
+  def get_channel(cable_box) do
+    Map.get(cable_box, :channel_number)
+  end
+
+  def mangle_channel(cable_box, mangle_input) do
   end
 
 end
