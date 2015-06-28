@@ -1,14 +1,11 @@
 defmodule Remote do
 
   def start_link do
-    Agent.start_link(channel, channel)
+    Agent.start_link(fn -> %{channel_number: 1} end)
   end
 
-  def get_channel do
-    Agent.get(channel, :channel)
+  def get_channel(channel) do
+    Agent.get(channel, Map.get(channel, :channel_number))
   end
 
-  def channel do
-    1
-  end
 end
